@@ -1,45 +1,49 @@
-#SarahLudwig
-#COP2002.0M1
-#09/21/24
-#Exercise 3 : If Statements
-#This program allows a user to enter a MAC address and look up the manufacturer.
+#GitHub Name: LEMcD
+#Course ID:  COP2002, Section:  0M1
+#Date Created:  September 8, 2024
+#Program Title:  Exercise 2
+#Description:  Using variables, assignment statements, calculations, and different ways of printing them
 
-def main():
-    
-    #using lists to store MAC addresses as well as manufacturers
-    hexDigits = ["00:00:17","00:07:E9","04:27:28","04:26:65","04:33:89","00:00:0C"]
-    manufacturer = ["Oracle","Intel Corporation","Microsoft Corporation","Apple, Inc.","Huawei Technologies Co.,Ltd","Cisco Systems, Inc"]
-    listLength = len(hexDigits)
-    indexCheck = 0
+#Creat variables for introduction sentences
 
-    print("MAC manufacturer Program\n-------------------------\n")
-    
-    prompt = "Enter the first 6 hex values of the MAC Address (format as XX:XX:XX): "
-    message = ""
-    message = input(prompt)
-
-    active = True
-    
-    #using a while loop to move through the list of hexDigits and once matched, pull the corresponding manufacturer at the correct index
-    
-    while active and indexCheck<=listLength:
-        
-        if hexDigits[indexCheck] == message:
-            active = False
-            print(f'\nFor {hexDigits[indexCheck]} the MAC manufacturer is {manufacturer[indexCheck]}')
-        elif indexCheck == listLength-1:
-            active = False
-            print(f'\nFor {message} the MAC manufacturer is unknown')
-        else:
-            indexCheck+=1
+name="Leigh McDavitt"
+major="Information Systems Technology-Security concentration"
+interest="I get to learn Python Langauage"
 
 
-if(__name__=="__main__"):
-    main()
+#Print introduction string sentences
+
+print("My name is "+(name)+"." "  My major is " +(major)+".")
+print("I'm most interested in this class because "+(interest)+"."+"\n")
+
+#Create variables for numbers used in calculations
+
+num1=28
+num2=37
+
+#Create variables for calculations using the number variables already defined & print the results
+
+sum=num1+num2 #variable for addtion 
+answer1=str(num1)+" "+"+"+" "+str(num2)+" "+"="" "+str(sum)+"\n" #variable to print entire addition equation with spaces
+print(answer1)
 
 
+difference=num1-num2 #variable for subraction 
+answer2=str(num1)+" "+"-"+" "+str(num2)+" "+"="" "+str(difference)+"\n" #variable to print entire subraction equation with spaces
+print(answer2)
+      
+product=num1*num2 #variable for multiplication 
+answer3=str(num1)+" "+"*"+" "+str(num2)+" "+"="" "+str(product)+"\n" #variable to print entire multiplication equation with spaces
+print(answer3)
 
-        
-    
-    
-    
+quotient=num1/num2 #variable for division 
+answer4=str(num1)+" "+"/"+" "+str(num2)+" "+"="" "+str(quotient)+"\n" #variable to print entire division equation with spaces
+print(answer4)
+      
+modulus=num1%num2 #variable for remainder
+answer5=str(num1)+" "+"%"+" "+str(num2)+" "+"="" "+str(modulus)+"\n\n" #variable to print entire modulus equation with spaces
+print(answer5)
+
+#Create variable and print end message of program
+ending="This is the end of the program!"
+print(ending)
