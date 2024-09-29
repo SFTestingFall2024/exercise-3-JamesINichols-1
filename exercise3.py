@@ -1,64 +1,40 @@
-# Tyler Santos (santost12)
-# COP2002-OM1
-# September 18, 2024
-# Exercise 3: If statements
-# Program to determine manufacturer for a NIC card
+# Aron Rascan
+# COP2002-0M1
+# Sept. 19th, 2024
+# Exercise 3
+# Print correct Manufacturer based on user input MAC Address
 
 
-# Takes macInput string and looks up manufacturer.
-def lookupMac(macInput):
-    macInput = macInput.upper() # Convert to uppercase
+# List or Array
+hexvalue=["00:00:17", "00:07:E9", "04:27:28", "04:26:65", "04:33:89", "00:00:0C"]
+manu=["Oracle", "Intel Corporation", "Microsoft Corporation", "Apple, Inc.", "Huawei Technologies Co.,Ltd", "Cisco Systems, Inc"]
 
-    if macInput == "00:00:17":
-        print(f"For {macInput} the MAC manufacturer is Oracle.")
+# Header print statement
+print("MAC Manufacturer Program")
+print("------------------------")
+print()
+print()
 
-    elif macInput == "00:07:E9":
-        print(f"For {macInput} the MAC manufacturer is Intel.")
+# User Input
+userHex=input("Enter the first 6 hex values of the MAC address (format as XX:XX:XX): ")
+if (userHex==hexvalue[0]):
+    print(f"For {userHex} the MAC manufacturer is {manu[0]}.")
 
-    elif macInput == "04:27:28":
-        print(f"For {macInput} the MAC manufacturer is Microsoft Corporation.")
+elif (userHex==hexvalue[1]):
+    print(f"For {userHex} the MAC manufacturer is {manu[1]}.")
 
-    elif macInput == "04:26:65":
-        print(f"For {macInput} the MAC manufacturer is Apple, Inc.")
+elif (userHex==hexvalue[2]):
+    print(f"For {userHex} the MAC manufacturer is {manu[2]}.")
 
-    elif macInput == "04:33:89":
-        print(f"For {macInput} the MAC manufacturer is Huawei Technologies Co.,Ltd.")
+elif (userHex==hexvalue[3]):
+    print(f"For {userHex} the MAC manufacturer is {manu[3]}.")
 
-    elif macInput == "00:00:0C":
-        print(f"For {macInput} the MAC manufacturer is Cisco Systems, Inc.")
+elif (userHex==hexvalue[4]):
+    print(f"For {userHex} the MAC manufacturer is {manu[4]}.")
 
-    else:
-        print(f"For {macInput} the MAC manufacturer is Unknown.")
+elif (userHex==hexvalue[5]):
+    print(f"For {userHex} the MAC manufacturer is {manu[5]}.")
 
+else:
+    print(f"For {userHex} the MAC manufacturer is Unknown.")
 
-# Takes macInput string and checks if is 8 characters.
-# Returns 0 for valid input.
-def validateInputLen(macInput):
-    if len(macInput) < 8:
-        print("Error: Not enough characters entered.")
-        return -1
-
-    elif len(macInput) > 8:
-        print("Error: Too many characters entered.")
-        return -2 
-
-    else:
-        return 0
-
-
-# Main function, where the user is prompted for input.
-def main():
-    print("MAC Manufacturer Program")
-    print("------------------------\n")
-
-    macInput = str(input("Enter the first 6 hex values of the MAC address (format as XX:XX:XX): "))
-
-    # Require 8 characters
-    while (validateInputLen(macInput) != 0):
-        macInput = str(input("Enter the first 6 hex values of the MAC address (format as XX:XX:XX): "))
-
-    lookupMac(macInput)
-
-
-if (__name__=="__main__"):
-    main()
