@@ -1,35 +1,45 @@
-#Aidan Riffee
-#F24 COP2002.0M1: PROGRAM LOGIC
-#9/21/24
-#Exercise 3: If-statements
-#This program requires user input in the form of hex digits and outputs
-#the corresponding manufacturer.
+#SarahLudwig
+#COP2002.0M1
+#09/21/24
+#Exercise 3 : If Statements
+#This program allows a user to enter a MAC address and look up the manufacturer.
 
 def main():
-#Dictionary that contains the hex codes and the corresponding manufacturer names
-
-    hex_Manuf={
-        '00:00:17':'Oracle',
-        '00:07:E9':'Intel Corporation',
-        '04:27:28':'Microsoft Corporation',
-        '04:26:65':'Apple, Inc',
-        '04:33:89':'Huawei Technologies Co.,Ltd',
-        '00:00:0C':'Cisco Systems, Inc'}
-#vars and user prompt
-
-    output=False
-    address=input("Enter the first 6 hex values of the MAC address (format as XX:XX:XX): ")
     
-#for loop to identify the proper manufacturer name based on the hex value
+    #using lists to store MAC addresses as well as manufacturers
+    hexDigits = ["00:00:17","00:07:E9","04:27:28","04:26:65","04:33:89","00:00:0C"]
+    manufacturer = ["Oracle","Intel Corporation","Microsoft Corporation","Apple, Inc.","Huawei Technologies Co.,Ltd","Cisco Systems, Inc"]
+    listLength = len(hexDigits)
+    indexCheck = 0
 
-    for key, value in hex_Manuf.items():
-        if address==key:
-            print(f"For {key} the MAC manufacturer is {value}.")
-            output=True
-#final if-statement that responds "unknown" if user input matched no hex values
+    print("MAC manufacturer Program\n-------------------------\n")
+    
+    prompt = "Enter the first 6 hex values of the MAC Address (format as XX:XX:XX): "
+    message = ""
+    message = input(prompt)
 
-    if output==False:
-        print("Unknown; Not valid value or not found.")
-#function call
+    active = True
+    
+    #using a while loop to move through the list of hexDigits and once matched, pull the corresponding manufacturer at the correct index
+    
+    while active and indexCheck<=listLength:
+        
+        if hexDigits[indexCheck] == message:
+            active = False
+            print(f'\nFor {hexDigits[indexCheck]} the MAC manufacturer is {manufacturer[indexCheck]}')
+        elif indexCheck == listLength-1:
+            active = False
+            print(f'\nFor {message} the MAC manufacturer is unknown')
+        else:
+            indexCheck+=1
 
-main()
+
+if(__name__=="__main__"):
+    main()
+
+
+
+        
+    
+    
+    
