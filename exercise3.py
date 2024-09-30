@@ -1,43 +1,32 @@
-#Exercise 3: If Statements
+#Timothy Flores
+#COP2002.0M1:Programming Logic
+#09.22.24
+#Exercise 3
+#Program to determine the manufacturer of a NIC Card
 
-#COP2002 0M1
-#9/22/24
-#This code asks the user for the first 6 hex digits formatted as XX:XX:XX and provides the manufacturer.
+#Dictionaries to include in list of Nic Cards to compare with user input
+niccard_0= {"00:00:17": {"manufacturer": 'Oracle', "hex digits": "00:00:17"}}
+niccard_1= {"00:07:E9": {"manufacturer": 'Intel Corporation', "hex digits": "00:07:E9"}}
+niccard_2= {"04:27:28": {"manufacturer": 'Microsoft Corporation', "hex digits": "04:27:28"}}
+niccard_3= {"04:26:65": {"manufacturer": 'Apple, Inc.', "hex digits": "04:26:65"}}
+niccard_4= {"04:33:89": {"manufacturer": 'Huawei Technologies Co.,Ltd', "hex digits": "04:33:89"}}
+niccard_5= {"00:00:0C": {"manufacturer": 'Cisco Systems, Inc', "hex digits": "00:00:0C"}}
 
-def main():
+#Variable list defined
+niccards= [niccard_0,niccard_1,niccard_2,niccard_3,niccard_4,niccard_5]
 
-    hexcode = str(input("Enter the first 6 hex values of the MAC address (format as XX:XX:XX): "))
+#intro statement at start of program
+print("MAC Manufacturer Program\n","------------------------\n\n")
 
-    hexcode1 = "00:00:17"
-    hexcode2= "00:07:E9"
-    hexcode3= "04:26:28"
-    hexcode4 = "04:26:65"
-    hexcode5 = "04:33:89"
-    hexcode6 = "00:00:0C"
+#prompt to ask user for Hex Value
+hex=input("Enter the first 6 hex values of the MAC address (format as XX:XX:XX): ")
 
-# If, elif and else statements check the equality of the hexcode entered.
-# If the hexcode value is listed it prints the manufacturer.
-# If the value entered is not one listed Manufacturer Unknown is printed.
-    if hexcode == hexcode1:
-        print ("For 00:00:17 the MAC manufacturer is Oracle.")
-
-    elif hexcode == hexcode2:
-        print ("For 00:07:E9 the MAC manufacturer is Intel Coperpration.")
-
-    elif hexcode == hexcode3:
-        print ("For 04:27:28 the MAC manufacturer is Microsoft Corporation.")
-
-
-    elif hexcode == hexcode4:
-        print ("For 04:26:65 the MAC manufacturer is Apple, Inc.")
-
-    elif hexcode == hexcode5:
-        print ("For 04:33:89 the MAC manufacturer is Huawei Technologies Co.,Ltd.")
-
-    elif hexcode == hexcode6:
-        print ("For 00:00:0C the MAC manufacturer is Cisco Systems, Inc.")
-
-    else: print ("<Not valid value or not found> Manufacturer Unknown")
-
-if(__name__=="__main__"):
-    main()
+#Loop through the Nic Card list to match user input
+active=True
+while active:
+    if hex in niccards:
+        print(f"For {hex}, the manufacturer is {niccards: [manufacturer]}.")
+        active=False
+    else:
+        print("Sorry, that is not a valid Mac address, Try again please.")
+        break
