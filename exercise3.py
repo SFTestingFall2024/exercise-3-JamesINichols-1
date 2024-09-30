@@ -1,28 +1,35 @@
-def main():
-    # Prompt user for input
-    mac_address = input("Enter the first 6 hex values of the MAC address (format as XX:XX:XX): ")
-    
-    # Dictionary of MAC manufacturers
-    manufacturers = {
-        "00:00:17": "Oracle",
-        "00:07:E9": "Intel Corporation",
-        "04:27:28": "Microsoft Corporation",
-        "04:26:65": "Apple, Inc.",
-        "04:33:89": "Huawei Technologies Co., Ltd",
-        "00:00:0C": "Cisco Systems, Inc"
-    }
+# Name: Dalton Lundy
+# Course ID: F24 COP2002.0M1
+# Date Created: 9/22/24
+# Program Title: Exercise 3
+# Program Description: This program determines the manufacturer of a NIC card based on the first 6 hex digits of the MAC address.
 
-    # Check if the input is in the dictionary
-    if mac_address in manufacturers:
-        manufacturer = manufacturers[mac_address]
+def main():
+    # List of manufacturers
+    manufacturers = ["Oracle","Intel Corporation","Microsoft Corporation","Apple, Inc.","Huawei Technologies Co.,Ltd","Cisco Systems, Inc"]
+
+    # Prompt the user for input
+    user_input = input("Enter the first 6 hex values of the MAC address (format as XX:XX:XX): ")
+
+    # Determine the manufacturer using if statements
+    if user_input == "00:00:17":
+        manufacturer = manufacturers[0]
+    elif user_input == "00:07:E9":
+        manufacturer = manufacturers[1]
+    elif user_input == "04:27:28":
+        manufacturer = manufacturers[2]
+    elif user_input == "04:26:65":
+        manufacturer = manufacturers[3]
+    elif user_input == "04:33:89":
+        manufacturer = manufacturers[4]
+    elif user_input == "00:00:0C":
+        manufacturer = manufacturers[5]
     else:
         manufacturer = "Unknown"
 
-    # Output results
-    print("\nMAC Manufacturer Program")
-    print("------------------------")
-    print()
-    print(f"For {mac_address} the MAC manufacturer is {manufacturer}.")
+    # Print the result
+    print(f"\nFor {user_input} the MAC manufacturer is {manufacturer}.")
 
-if __name__ == "__main__":
+
+if(__name__=="__main__"):
     main()
