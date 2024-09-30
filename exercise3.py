@@ -1,56 +1,26 @@
-# Jacob McCravy (JacobMcCravy)
-# COP2002-0M1
-# September 19, 2024
+# Zane Vance
+# COP2002.0M1: Program Logic
+# Created 9/22/24
 # Exercise 3: If statements
-# This program takes the first 6 digits of a MAC address and outputs the manufacturer.
+# Program will take user input to discern which manufacturer made an item from the first 6 hex values of the MAC address
 
-def main():
+print("MAC Manufacturer Program")
+print("------------------------\n")
 
-# Create two list that have matching index positions. ie. manList[x] == hexList[x]
-    manList = [
-    'Oracle.',
-    'Intel Corporation.',
-    'Microsoft Corporation.',
-    'Apple, Inc.',
-    'Huawei Technologies Co.,Ltd.',
-    'Cisco Systems, Inc.',
-    'unknown.']
+# Prints the top of the program. Number of dashes might be off.
 
-    hexList = [
-    '00:00:17',
-    '00:07:E9',
-    '04:27:28',
-    '04:26:65',
-    '04:33:89',
-    '00:00:0C']
+hex = input("Enter the first 6 hex values  of the MAC address (format as XX:XX:XX): ")
 
+# Prompts the user for the 6 hex values
 
-# creating variables for print statemnts
-    outputFound = "The manufacturer is: "
-    outputUnknown = "My apologies, this manufacturer is"
+if hex== "00:00:17" : manufacturer = "Oracle"
+elif hex== "00:07:E9" : manufacturer = "Intel Corporation"
+elif hex== "04:27:28" : manufacturer = "Microsoft Corporation"
+elif hex== "04:26:65" : manufacturer = "Apple, Inc."
+elif hex== "04:33:89" : manufacturer = "Huawei Technologies Co.,Ltd"
+elif hex=="00:00:0C" : manufacturer = "Cisco Systems, Inc"
+else : manufacturer = "Unknown"
 
+# Compares the user-inputted hex value to the ones tied to given manufacturers
 
-# Input statement that asks for first 6 characters of MAC address.
-    hexInput = input("Please type the first 6 characters, including colons(XX:XX:XX): ")
-
-
-# If elif statement that compares the values of hexInput to hexList[x] then outputs corresponding manList[x] value.
-    if hexInput.upper() == hexList[0]:
-        print(outputFound, manList[0])
-    elif hexInput.upper() == hexList[1]:
-        print(outputFound, manList[1])
-    elif hexInput.upper() == hexList[2]:
-        print(outputFound, manList[2])
-    elif hexInput.upper() == hexList[3]:
-        print(outputFound, manList[3])
-    elif hexInput.upper() == hexList[4]:
-        print(outputFound, manList[4])
-    elif hexInput.upper() == hexList[5]:
-        print(outputFound, manList[5])
-    else:
-        print(outputUnknown, manList[-1])
-
-
-
-if(__name__=="__main__"):
-    main()
+print(f"For " + hex +" the MAC manufacturer is "+ manufacturer+ ".")
