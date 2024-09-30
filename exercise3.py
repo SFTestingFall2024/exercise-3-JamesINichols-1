@@ -1,28 +1,56 @@
-# SFC-COMP-RC
-# COP2002.0M1
-# September 20, 2024
-# Exercise 3: If statements 
-# This program uses a array of known MAC address to take to the user input first 6 hex values of a MAC address to return the manufacturer of a NIC
+# Jacob McCravy (JacobMcCravy)
+# COP2002-0M1
+# September 19, 2024
+# Exercise 3: If statements
+# This program takes the first 6 digits of a MAC address and outputs the manufacturer.
 
 def main():
 
-    # Known values to retrive data from, stored as arrays
-    knownHex=["00:00:17","00:07:E9","04:27:28","04:26:65","04:33:89","00:00:0C"]
-    manufactures=["Oracle","Intel Corporation","Microsoft Corporation","Apple, Inc.","Huawei Technologies Co.,Ltd","Cisco Systems, Inc"]
+# Create two list that have matching index positions. ie. manList[x] == hexList[x]
+    manList = [
+    'Oracle.',
+    'Intel Corporation.',
+    'Microsoft Corporation.',
+    'Apple, Inc.',
+    'Huawei Technologies Co.,Ltd.',
+    'Cisco Systems, Inc.',
+    'unknown.']
 
-    # Display a title and Request the user's input stored as macInput
-    macInput=input("MAC Manufactuer Program\n-----------------------\n\nEnter the first 6 hex values of the MAC address (format as XX:XX:XX): ")
+    hexList = [
+    '00:00:17',
+    '00:07:E9',
+    '04:27:28',
+    '04:26:65',
+    '04:33:89',
+    '00:00:0C']
 
-    for i in range(len(knownHex)): # Loop for the number of items in the Array "knownHex"
 
-        if( knownHex[i] == macInput): # Check if the user input matches a known hex value
-            print(f"For {macInput} the MAC manufacturer is {manufactures[i]}") # Output the user's input and manufacturer of the NIC
-            break
+# creating variables for print statemnts
+    outputFound = "The manufacturer is: "
+    outputUnknown = "My apologies, this manufacturer is"
 
+
+# Input statement that asks for first 6 characters of MAC address.
+    hexInput = input("Please type the first 6 characters, including colons(XX:XX:XX): ")
+
+
+# If elif statement that compares the values of hexInput to hexList[x] then outputs corresponding manList[x] value.
+    if hexInput.upper() == hexList[0]:
+        print(outputFound, manList[0])
+    elif hexInput.upper() == hexList[1]:
+        print(outputFound, manList[1])
+    elif hexInput.upper() == hexList[2]:
+        print(outputFound, manList[2])
+    elif hexInput.upper() == hexList[3]:
+        print(outputFound, manList[3])
+    elif hexInput.upper() == hexList[4]:
+        print(outputFound, manList[4])
+    elif hexInput.upper() == hexList[5]:
+        print(outputFound, manList[5])
     else:
-        print(f"For {macInput} the MAC manufacturer is Unkown") # If the input doesn't match a known MAC address, the output the user's input and Unkown.
+        print(outputUnknown, manList[-1])
 
 
-# Call the main() function
+
 if(__name__=="__main__"):
     main()
