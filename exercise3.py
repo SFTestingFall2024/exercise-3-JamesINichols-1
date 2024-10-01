@@ -1,30 +1,42 @@
-def get_manufacturer(mac_prefix):
-    # Dictionary of MAC prefix to manufacturer
-    mac_database = {
-        "00:00:17": "Oracle",
-        "00:07:E9": "Intel Corporation",
-        "04:27:28": "Microsoft Corporation",
-        "04:26:65": "Apple, Inc.",
-        "04:33:89": "Huawei Technologies Co.,Ltd",
-        "00:00:0C": "Cisco Systems, Inc",
+#Joseph Wright
+#COP2002.0M1
+#9/28/2024
 
-        # Add more manufacturers as needed
-    }
-    
-    # Check if the provided prefix exists in the database
-    return mac_database.get(mac_prefix.upper(), "Unknown Manufacturer")
 
-def main():
-    # Ask user for input
-    mac_input = input("Enter the first 6 hex digits of the MAC address (formatted as XX:XX:XX): ")
 
-    # Validate the format
-    if len(mac_input) == 8 and mac_input[2] == ':' and mac_input[5] == ':' and all(c in "0123456789ABCDEFabcdef:" for c in mac_input):
-        manufacturer = get_manufacturer(mac_input)
-        print(f"Manufacturer: {manufacturer}")
-    else:
-        print("Invalid format. Please use XX:XX:XX.")
 
-if __name__ == "__main__":
-    main()
-    
+print("MAC Manufacturer Program")
+print("------------------------")
+"Please enter your name:joseph Wright  "
+print("Enter the first 6 hex valuse of the MAC address format as (xx.xxxx)")
+hex=04.3389
+
+#hex digits
+a=00.0017
+b=00.07E9
+C=04.2728
+D=04.2665
+E=04.3389
+F=00000
+#manufactures
+g=("Oracle")
+h=("Intel corporation")
+i=("Microsoft Corporation")
+j=("Apple, inc.")
+k=("Huawei Technologies Co.,Ltd")
+l=("Cisco Sysytems, Inc")
+
+if(hex==00.0017):
+    print("For the hex digit 00:00:17 the Manufacturer for this  NIC card is Oracle")
+elif(hex==00.07E9):
+    print("For the hex digit 00:07:E9 the Manufacturer for this NIC card is Intel Corporation")
+elif(hex==04.2728):
+    print("For the hex digit 04:27:28 the Manufacturer for this NIC card is Microsoft Corporation")
+elif(hex==04.2665):
+    print("For the hex digit 04:26:65 the Manufacturer for this NIC card is Apple, Inc.")
+elif(hex==04.3389):
+    print("For the hex digit 04:33:89 the Manufacturer for this NIC card is Huawei Technologies Co.,Ltd")
+elif(hex==00000):
+    print("For the hex digit 00:00:0C the Manufacturer for this NIC card is Cisco Sysytems, Inc")
+else:
+    print("unknown Manufacturer")
