@@ -1,40 +1,68 @@
-#Aidan Riffee
-#F24 COP2002.0M1: PROGRAM LOGIC
-#9/21/24
-#Exercise 3: If-statements
-#This program requires user input in the form of hex digits and outputs
-#the corresponding manufacturer.
+# John Coffill (jscoffill)
+# F24 COP2002.0M1
+# 10/01/2024
+# Exercise 3: If statements
+# Determine manufacturer for a NIC card.
+
+# Create Function
+
 
 def main():
+    
+    # Program header
+
 
     print("MAC Manufacturer Program")
-    print("-------------------------")
-    
-    #lists for the hex digits and the manufacturers
 
-    hexDigits=['00:00:17', '00:07:E9', '04:27:28', '04:26:65', '04:33:89', '00:00:0C']
-    manufacturers=['Oracle', 'Intel Corporation', 'Microsoft Corporation', 'Apple, Inc', 'Huawei Technologies Co.,Ltd', 'Cisco Systems, Inc', 'Unknown']
-    
-    #vars and user prompt
-    index=0
-    code=""
-    address=input("\nEnter the first 6 hex values of the MAC address (format as XX:XX:XX): ")
-    
-    #for loop to identify the index of the input value in the list hexDigits
+    print("------------------------")
 
-    for digit in hexDigits:
-        if(digit==address):
-            index=hexDigits.index(digit)
-            code=digit
-  
-    #determines if the input value was recognizable
-  
-    if (code==""):
-        print(f"\nFor {address} the MAC manufacturer is {manufacturers[-1]}.")
-    else:
-        print(f"\nFor {address} the MAC manufacturer is {manufacturers[index]}.")
+    print("")
 
-#function call
+    # Get user input
 
-if(main==main):
+
+    user_input = input("Enter the first 6 hex values of the MAC address (format as XX:XX:XX): ")
+
+    # Create variable to store company 
+
+
+    company = "Unknown"
+
+    # Check for each manufacturer 
+
+
+    if user_input == "00:00:17":
+
+        company = "Oracle"
+
+    elif user_input == "00:07:E9":
+
+        company = "Intel Corporation"
+
+    elif user_input == "04:27:28":
+
+        company = "Microsoft Corporation"
+
+    elif user_input == "04:26:65":
+
+        company = "Apple, Inc."
+
+    elif user_input == "04:33:89":
+
+        company = "Huawei Technologies Co., Ltd."
+
+    elif user_input == "00:00:0C":
+
+        company = "Cisco Systems, Inc."
+
+    #Print Manufacturer
+
+
+    print("For", user_input, "the MAC manufacturer is", company)
+
+# Run the program
+
+
+if __name__ == "__main__":
+
     main()
