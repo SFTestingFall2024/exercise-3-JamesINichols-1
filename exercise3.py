@@ -1,42 +1,62 @@
-#Joseph Wright
-#COP2002.0M1
-#9/28/2024
+# Tyler Santos (santost12)
+# COP2002-OM1
+# September 18, 2024
+# Exercise 3: If statements
+# Program to determine manufacturer for a NIC card
 
 
+# Takes macInput string and returns manufacturer as string.
+def lookupMac(macInput):
+    macInput = macInput.upper() # Convert to uppercase
+
+    # Check input for these prefixes.
+    # And if there's no match, return Unknown.
+    if macInput == "00:00:17":
+        return "Oracle"
+    elif macInput == "00:07:E9":
+        return "Intel Corporation"
+    elif macInput == "04:27:28":
+        return "Microsoft Corporation"
+    elif macInput == "04:26:65":
+        return "Apple, Inc."
+    elif macInput == "04:33:89":
+        return "Huawei Technologies Co.,Ltd."
+    elif macInput == "00:00:0C":
+        return "Cisco Systems, Inc."
+    else:
+        return "Unknown"
 
 
-print("MAC Manufacturer Program")
-print("------------------------")
-"Please enter your name:joseph Wright  "
-print("Enter the first 6 hex valuse of the MAC address format as (xx.xxxx)")
-hex=04.3389
+# Takes macInput string and checks if is 8 characters.
+# Returns 0 for valid input.
+def validateInputLen(macInput):
 
-#hex digits
-a=00.0017
-b=00.07E9
-C=04.2728
-D=04.2665
-E=04.3389
-F=00000
-#manufactures
-g=("Oracle")
-h=("Intel corporation")
-i=("Microsoft Corporation")
-j=("Apple, inc.")
-k=("Huawei Technologies Co.,Ltd")
-l=("Cisco Sysytems, Inc")
+    # Eight characters exactly includes the colon.
+    if len(macInput) < 8:
+        print("Error: Not enough characters entered.")
+        return -1
+    elif len(macInput) > 8:
+        print("Error: Too many characters entered.")
+        return -2 
+    else:
+        return 0
 
-if(hex==00.0017):
-    print("For the hex digit 00:00:17 the Manufacturer for this  NIC card is Oracle")
-elif(hex==00.07E9):
-    print("For the hex digit 00:07:E9 the Manufacturer for this NIC card is Intel Corporation")
-elif(hex==04.2728):
-    print("For the hex digit 04:27:28 the Manufacturer for this NIC card is Microsoft Corporation")
-elif(hex==04.2665):
-    print("For the hex digit 04:26:65 the Manufacturer for this NIC card is Apple, Inc.")
-elif(hex==04.3389):
-    print("For the hex digit 04:33:89 the Manufacturer for this NIC card is Huawei Technologies Co.,Ltd")
-elif(hex==00000):
-    print("For the hex digit 00:00:0C the Manufacturer for this NIC card is Cisco Sysytems, Inc")
-else:
-    print("unknown Manufacturer")
+
+# Main function, where the user is prompted for input.
+def main():
+    print("MAC Manufacturer Program")
+    print("------------------------\n")
+
+    macInput = str(input("Enter the first 6 hex values of the MAC address (format as XX:XX:XX): "))
+
+    # Require 8 characters. Ask for input again if too many or too few.
+    while (validateInputLen(macInput) != 0):
+        macInput = str(input("Enter the first 6 hex values of the MAC address (format as XX:XX:XX): "))
+
+    # Get manufacturer and then print.
+    manufacturer = lookupMac(macInput)
+    print(f"For {macInput} the MAC manufacturer is {manufacturer}")
+
+
+if (__name__=="__main__"):
+    main()
